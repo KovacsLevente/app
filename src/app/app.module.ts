@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { CreateComponent } from './create/create.component';
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,11 @@ import { DeleteComponent } from './delete/delete.component';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-      {path: 'list', component: ListComponent },
+      {path: 'list', component: ListComponent, canActivate: [ AuthGuard ] },
       {path: 'login', component: LoginComponent },
-      {path: 'create', component: CreateComponent },
-      {path: 'update', component: UpdateComponent },
-      {path: 'delete', component: DeleteComponent },
+      {path: 'create', component: CreateComponent, canActivate: [ AuthGuard ] },
+      {path: 'update', component: UpdateComponent, canActivate: [ AuthGuard ] },
+      {path: 'delete', component: DeleteComponent, canActivate: [ AuthGuard ] },
     ]),
   ],
   providers: [],
