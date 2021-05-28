@@ -8,15 +8,30 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ListComponent implements OnInit {
 
-  private data:any = [];
+  data:any = [];
   city = "";
-  //temp:any = [];
+  
 
   test1:any = [];
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.data = localStorage.getItem("data");
+    this.data = JSON.parse(this.data);
+  }
+
+  /*
+  getData(){
+
+    localStorage.removeItem("data");
+
+    this.data.push(["asd1","asd1","asd1"]);
+    this.data.push(["asd2","asd2","asd2"]);
+    this.data.push(["asd3","asd3","asd3"]);
+    this.data.push(["asd4","asd4","asd4"]);
+
+    localStorage.setItem("data", JSON.stringify(this.data));
   }
 
   getApi(num:number){
@@ -46,10 +61,8 @@ export class ListComponent implements OnInit {
     this.test1 = JSON.parse(this.test1);
     console.log("localstorage1:" + this.test1[0]);
     console.log("localstorage2:" + this.test1[1]);
-    
-    
-    
-    /*
+     
+    //temp
     url ='https://phishstats.info:2096/api/phishing?_where=(id,eq,15)';
     this.http.get(url).subscribe((res)=>{
       this.temp = res
@@ -57,9 +70,7 @@ export class ListComponent implements OnInit {
       console.log("masodik:" + this.data[1]);
       console.log(this.data);
      
-    })
-     
-       */
-      
+    })  
   }
+  */
 }

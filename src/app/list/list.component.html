@@ -1,3 +1,24 @@
-<p>list works!</p>
-
-<button (click)="getData()">Adatttt</button>
+<div class="container-sm">
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">IP</th>
+        <th scope="col">HOST</th>
+        <th scope="col">URL</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let dt of data">
+            <td>
+                {{dt[0]}}
+            </td>
+            <td>
+                {{dt[1]}}
+            </td>
+            <td>
+                {{dt[2]}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
