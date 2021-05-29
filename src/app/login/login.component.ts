@@ -31,21 +31,26 @@ export class LoginComponent implements OnInit {
 
     localStorage.removeItem("data");
     
-    //
+    //hardcoded adat
     this.data.push(["IP1","HOST1","URL1"]);
     this.data.push(["IP2","HOST2","URL2"]);
     this.data.push(["IP3","HOST3","URL3"]);
     
-    
+    //Fő api kérés,20-25 ID-vel rendelkező adatokat kiválóan lekéri, 
+    //viszont ha a getApi() metóduson belül hívom meg a data.push eljárást
+    //akkor valamiért minimálisan másképp jön létre a data array
+    //amit a JSON.stringify már nem tud lekezelni, és üres adatot ad vissza
+    //sehogy sem tudtam működésre bírni ezért hardcoded adatokkal folytattam
     /*
-    let num = 20;
-
+     let num = 20;
     for (let i = 0; i < 5; i++) {
       this.getApi(num);
       num++;
-    }*/
-
-    console.log(this.data);
+    }   */
+  
+    
+    //console.log(this.data);
+    //console.log(JSON.stringify(this.data));
     localStorage.setItem("data", JSON.stringify(this.data));
   }
 
@@ -54,10 +59,10 @@ export class LoginComponent implements OnInit {
     this.http.get(url).subscribe((res)=>{
       var temp:any = [];
       temp = res
-      this.data.push([temp[0].countryname,temp[0].ip,temp[0].host]);
-      console.log("ID" + num);
-      console.log(temp);
+      //this.data.push(["IP3","HOST3","URL3"]);
+      //console.log("ID" + num);
+      //console.log(temp);
+      this.data.push([String(temp[0].countryname),String(temp[0].ip),String(temp[0].host)]);
     })
   }
-
 }

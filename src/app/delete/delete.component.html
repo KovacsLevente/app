@@ -1,1 +1,28 @@
-<p>delete works!</p>
+<div class="container-sm">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">IP</th>
+            <th scope="col">HOST</th>
+            <th scope="col">URL</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let dt of data">
+                <td>
+                    {{dt[0]}}
+                </td>
+                <td>
+                    {{dt[1]}}
+                </td>
+                <td>
+                    {{dt[2]}}
+                </td>
+                <td>
+                    <button (click)="delete(dt[0])">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>

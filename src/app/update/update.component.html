@@ -1,1 +1,39 @@
-<p>update works!</p>
+<div class="container-sm">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">IP</th>
+            <th scope="col">HOST</th>
+            <th scope="col">URL</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let dt of data; index as i">
+                <td>
+                    <div class="form-group row">
+                        <div class="col-sm">
+                            <input type="text" class="form-control"  placeholder="{{dt[0]}}" value="{{dt[0]}}" #ip>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group row">
+                        <div class="col-sm">
+                            <input type="text" class="form-control"  placeholder="{{dt[1]}}" value="{{dt[1]}}" #host>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group row">
+                        <div class="col-sm">
+                            <input type="text" class="form-control"  placeholder="{{dt[2]}}" value="{{dt[2]}}" #url>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button (click)="Update(i,ip.value, host.value, url.value)">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
