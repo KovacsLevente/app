@@ -1,1 +1,40 @@
-<p>create works!</p>
+<div class="container-sm">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">IP</th>
+            <th scope="col">HOST</th>
+            <th scope="col">URL</th>
+            <th scope="col">#</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="form-group row">
+                        <div class="col-sm">
+                            <input type="text" class="form-control"  placeholder="IP" #ip>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group row">
+                        <div class="col-sm">
+                            <input type="text" class="form-control"  placeholder="Host" #host>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group row">
+                        <div class="col-sm">
+                            <input type="text" class="form-control"  placeholder="URL" #url>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button (click)="Create(ip.value, host.value, url.value)">Create</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
